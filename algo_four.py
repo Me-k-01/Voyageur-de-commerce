@@ -114,7 +114,7 @@ def index_max(arr, exclude_indices): # retourne l'indice dont la valeur est maxi
             
     return best_i
 
-def find_best(mat_pheromone): # Trouve le chemin le plus parcourus
+def find_best_path(mat_pheromone): # Trouve le chemin le plus parcourus
     path = [0] # On démart à 0, car on cherche un cycle hamiltonien, donc le meilleur circuit passera forcement par cette ville, indépendament de l'ordre.
     # Pour chaque ville
     for _ in range(1, len(mat_pheromone)):
@@ -152,12 +152,16 @@ def algo_fourmis(mat_cost, time_max=100, verbal=False):
         evaporation(mat_pheromone, disipation_rate)
         
         if verbal:
-            print("iteration: ", i, ", meilleurs chemins:", get_path_cost(mat_cost, find_best(mat_pheromone)) )
+            print("iteration: ", i, ", meilleurs chemins:", get_path_cost(mat_cost, find_best_path(mat_pheromone)) )
     
-    best_path = find_best(mat_pheromone) 
+    best_path = find_best_path(mat_pheromone) 
     best_cost = get_path_cost(mat_cost, best_path)
     if verbal:
         print("Meilleur chemin: ", best_path)
         print("Cout: ", best_cost)
     return best_path, best_cost
+    
+if __name__ == "__main__":
+    from test import create_matrix
+    algo_fourmis(create_matrix(7), time_max=100, verbal=True)
     
