@@ -157,16 +157,18 @@ def change(path, path_chunk, index):
 
 def croisement(population, nb_enfants, life_time, change_size=2): # Génère une liste d'enfants
     n_ville = len(population[0][0]) 
-    enfants = []
-    shuffle(population) # On s'assure de tirer des parents aléatoirements
-    if nb_enfants > len(population):
-        raise Exception("Nombre d'enfants trop grands")
+    enfants = [] 
+    population_size = len(population)
+    #if nb_enfants > len(population):
+    #    raise Exception("Nombre d'enfants trop grands")
+    
+    shuffle(population) # On s'assure de tirer des couples de parents aléatoirements
     
     for i in range(0, nb_enfants, 2): # Pour chaque couple de parents
         ###### Croisement entre les deux parents ######
         # Chemin des parents
-        parent_1 = population[i][0]
-        parent_2 = population[i+1][0]
+        parent_1 = population[(i)%population_size][0] # Si on a pas assez de parents, on boucle 
+        parent_2 = population[(i+1)%population_size][0]
         # On crée deux enfants
         enfant_1 = list(parent_1)
         enfant_2 = list(parent_2) 
