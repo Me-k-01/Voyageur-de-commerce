@@ -49,65 +49,6 @@ def selection(population, nb_select, mat_cost):
                 break
 
     return new_pop
-    
-    
-"""    
-
-def croisement(population, nb_enfants, life_time):
-    for _ in range(0, nb_enfants // 2):
-        # Selection des parents
-        indice_parent1 = randint(0, len(population)-1)
-        indice_parent2 = randint(0, len(population)-1)
-        #print("indice du parent1:",indice_parent1,"  indice du parent 2:",indice_parent2)
-        #print("taille de la pop:",len(population)-1)
-
-        parent1=population[indice_parent1][0]
-        parent2=population[indice_parent2][0]
-        indice_same=randint(1, len(parent1) - 1)
-        enfant1 = []
-        enfant2 = []
-        enfant1_temp = []
-        enfant2_temp = []
-
-        for x in range(0, indice_same):
-            enfant1_temp.append(parent1[x])
-            enfant2_temp.append(parent2[x])
-
-        for y in range(indice_same, len(parent1)):
-            enfant1_temp.append(parent2[y])
-            enfant2_temp.append(parent1[y])
-
-        for a in range(0, len(enfant1_temp)):
-            if enfant1_temp[a] not in enfant1:
-                enfant1.append(enfant1_temp[a])
-            if enfant2_temp[a] not in enfant2:
-                enfant2.append(enfant2_temp[a])
-        
-        for b in range(0, len(parent1)):
-            if b not in enfant1:
-                enfant1.append(b)
-            if b not in enfant2:
-                enfant2.append(b)
-        
-        population.append([enfant1, life_time])
-        population.append([enfant2, life_time])
-        #print(population)
- 
-"""
-"""
-def select_indiv(population, quantity=2): # Choisit deux chemins de parents  
-    i = 1 # commence a 1, pour la mise en fin de liste
-    selection = []
-    while i <= quantity:
-        # On selectionne un individu dans la population
-        r_index = randint(0, len(population)-i)
-        indiv = population[r_index][0]
-        # On sépare le parent du reste des individus pour le choix du prochain parent, en le metant à la fin de la liste.
-        population[r_index], population[-i] = population[-i], population[r_index]
-        selection.append(indiv)
-        i += 1  
-    return selection 
-"""
 
 def find_missing(arr):
     missing = [] 
@@ -230,7 +171,7 @@ def population_init(mat, size, n_lives=5): #Initialise une population de taille 
         
     return population
 
-def algo_genetique(mat_cost, time_max=100, verbal=False): 
+def algo_genetique(mat_cost, time_max=100, n_indiv=10, verbal=False): 
     """
     time_max : Nombre de cycle max
     """
@@ -238,7 +179,7 @@ def algo_genetique(mat_cost, time_max=100, verbal=False):
     population_size = 20 # Taille initial de la population
     life_time = 10 # Nombre de cycle avant la mort d'un individu
     # Croisement
-    nb_enfants = 10 # Nombre d'enfant par cycle
+    nb_enfants = n_indiv # Nombre d'enfant par cycle
     mixte_length = len(mat_cost) // 2 # Taille de l'heredité d'un parent
     # Pourcentage de mutation
     mutation_amount = 0.2 # Taux d'individu a muter dans la population
@@ -274,9 +215,3 @@ if __name__ == "__main__":
     from test import create_matrix
     algo_genetique(create_matrix(7), time_max=100, verbal=True)
     
-    # e = croisement([
-    #     [[0, 1, 2, 3, 4], 0],
-    #     [[2, 4, 1, 3, 0], 0] 
-    #     ], 2, life_time=0, change_size=4)
-    
-    # print(e)

@@ -124,13 +124,13 @@ def find_best_path(mat_pheromone): # Trouve le chemin le plus parcourus
     return path
 
 
-def algo_fourmis(mat_cost, time_max=100, verbal=False): 
+def algo_fourmis(mat_cost, time_max=100, n_indiv=10, verbal=False): 
     """
     time_max : Nombre de cycle max
     """
     size = len(mat_cost)
     ###### Paramètres ###### 
-    agents_number = 10 # Nombre d'agents qui parcours la matrice d'adjacence
+    agents_number = n_indiv # Nombre d'agents qui parcours la matrice d'adjacence
     disipation_rate = 0.01 # Taux de dissipation par cycle
     deposit_Q = 1 # Parametre qui influ le taux de phéromones déposé par les agents
     prob_explore_Y = 0.1 # Probabilité non-nul d'explorer une ville inexploré
