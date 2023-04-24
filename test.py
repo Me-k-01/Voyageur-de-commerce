@@ -37,4 +37,4 @@ if __name__ == "__main__":
     gen = algo_genetique(m, time_max=100, verbal=True)
     four = algo_fourmis(m, time_max=100, verbal=True)
 
-    print("Valeur de sortie de l'algoritme génétique:{gen} \nValeur de sortie de l'algoritme de fourmis:{four}")
+    print(f"Valeur de sortie de l'algoritme génétique :  {gen} \nValeur de sortie de l'algoritme de fourmis : {four}")
