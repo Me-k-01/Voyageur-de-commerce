@@ -176,7 +176,7 @@ def algo_genetique(mat_cost, time_max=100, n_indiv=10, verbal=False):
     time_max : Nombre de cycle max
     """
     ###### Paramètres ###### 
-    population_size = 20 # Taille initial de la population
+    population_size = n_indiv # Taille initial de la population
     life_time = 10 # Nombre de cycle avant la mort d'un individu
     # Croisement
     nb_enfants = n_indiv # Nombre d'enfant par cycle
