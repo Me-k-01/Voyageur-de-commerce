@@ -7,7 +7,10 @@ Le projet à pour but d'impléménter deux algorithmes permettant la résolution
 
 ## Pour lancer le programme
 Exécuter le fichier python "test.py" pour lancer les deux algorithmes sur le fichier "mat_adjacence.txt".
-```python3 test.py```
+
+```sh
+python3 test.py
+```
 
 ## Descriptif de test.py
 
