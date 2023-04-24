@@ -15,7 +15,7 @@ Le fichier test.py a pour but de ressortir le chemin et la valeur la plus courte
 De plus, il est possible de passer un fichier qui va contenir la distance entre les points et ainsi construire la matrice d'adjacence.
 Par exemple, pour la matrice d'adjacence donné dans le fichier "mat_adjacence", le graphe ressemblera à ceci:
 
-![Visualisation du graphe](graphe.png)
+![Visualisation du graphe](example/graphe.png)
 
 Le circuit en rouge est le chemin optimal. Il est important de noter que le programme ne renvoie pas d'image et que ce visuel est juste là pour servir d'exemple et pouvoir être comparer avec les résultats obtenus par les deux types d'algorithmes.
 
@@ -24,5 +24,5 @@ Le circuit en rouge est le chemin optimal. Il est important de noter que le prog
 Une autre manière de visualiser les performances de nos algorithmes est d'utiliser le fichier "benchmark.ipynb" qui va en plus de nous donner la précision de nos deux algorithmes comparée au chemin optimal, va nous donner les temps d'exécution sur differentes nombre de ville. 
 > Exemple de resultat que retournera le benchmark :
 
-![Visualisation du rendu du benchmark](benchmark_10_indiv.png)
+![Visualisation du rendu du benchmark](example/benchmark_10_indiv.png)
 
