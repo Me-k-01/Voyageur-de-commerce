@@ -32,3 +32,9 @@ def create_matrix(n_ville):
 
     return mat
 
+if __name__ == "__main__":
+    m = load_matrix()
+    gen=algo_genetique(m, time_max=100, verbal=True)
+    four=algo_fourmis(m,time_max=100, verbal=True)
+
+    print(f"Valeur de sortie de l'algoritme génétique:{gen} \nValeur de sortie de l'algoritme de fourmis:{four}")
