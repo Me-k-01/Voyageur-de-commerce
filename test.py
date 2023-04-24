@@ -4,9 +4,9 @@ import numpy as np
 from random import randint
 
 # Chargement de la matrice adjacence à partir d'un fichier
-def load_matrix():
+def load_matrix(filename):
     mat = []
-    with open('mat_adjacence', 'r') as file:   
+    with open(filename, 'r') as file:   
         for l in file.readlines():  
             val = [int(x) for x in l.split()]
             mat.append(val)            
@@ -33,8 +33,8 @@ def create_matrix(n_ville):
     return mat
 
 if __name__ == "__main__":
-    m = load_matrix()
-    gen=algo_genetique(m, time_max=100, verbal=True)
-    four=algo_fourmis(m,time_max=100, verbal=True)
+    m = load_matrix("./mat_adjacence.txt")
+    gen = algo_genetique(m, time_max=100, verbal=True)
+    four = algo_fourmis(m, time_max=100, verbal=True)
 
-    print(f"Valeur de sortie de l'algoritme génétique:{gen} \nValeur de sortie de l'algoritme de fourmis:{four}")
+    print("Valeur de sortie de l'algoritme génétique:{gen} \nValeur de sortie de l'algoritme de fourmis:{four}")
